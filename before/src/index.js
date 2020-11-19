@@ -4,5 +4,9 @@ import { BrowserRouter as Router } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from './Components/App';
 import "./index.css";
+import configureStore from "./Redux/configureStore";
+import { Provider } from "react-redux"; 
 
-render(<Router> <App/></Router>, document.getElementById("app"));
+const store = configureStore();
+
+render(<Provider store={store}><Router> <App/></Router></Provider>, document.getElementById("app"));
